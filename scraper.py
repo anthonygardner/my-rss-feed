@@ -34,7 +34,6 @@ def main():
     posts_raw_html = []
     for line in s.find_all("div", {"class": "PostsList2-posts"}):
         posts_raw_html.append(line)
-    print(posts_raw_html[0].prettify())
 
     # Extract the titles of each post
     post_titles = []
