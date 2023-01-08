@@ -2,7 +2,7 @@
 
 from bs4 import BeautifulSoup
 
-import pandas as pd
+import polars as pl
 import requests
 
 
@@ -46,10 +46,12 @@ def main():
         post_titles.append(title.get_text())
         post_dates.append(date.get_text())
     
-    df = pd.DataFrame({
-        "Title": post_titles,
-        "Date": post_dates,
-    })
+    df = pl.DataFrame(
+        {
+            "Title": post_titles,
+            "Date": post_dates,
+        }
+    )
     print(df)
     
 
